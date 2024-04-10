@@ -354,7 +354,7 @@ def _golden_sect_DataFrame(params, lower, upper, func, atol=1e-8):
     --------
     pvlib.singlediode._pwr_optfcn
     """
-    if np.any(upper - lower < 0.):
+    if np.any(upper - lower < 0.) or np.any(upper == lower):
         raise ValueError('upper >= lower is required')
 
     phim1 = (np.sqrt(5) - 1) / 2
